@@ -45,10 +45,11 @@ export default function SearchBar() {
         role='img'
       />
       <input
-        className='h-8 flex-1 rounded-md'
+        className='h-8 flex-1 rounded-md pl-4'
         type='text'
         value={searchQuery}
         role='searchbox'
+        placeholder='Busca un producto...'
         onChange={handleInputChange}
       />
       <button className='h-8 w-8 px-2 py-1 text-slate-700' type='submit'>

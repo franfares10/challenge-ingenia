@@ -6,7 +6,8 @@ import { Loader } from '../components/Loader';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useCart } from '../providers/CartContext';
-
+import { Button } from '@mui/material';
+import { FaStar } from 'react-icons/fa'
 type Params = {
   id: string;
 };
@@ -48,20 +49,23 @@ const ProductDescription: React.FC = () => {
             <article className='grid gap-4'>
               <div className='flex justify-around items-center'>
                 <img src={product?.thumbnail} alt='product' />
-                <button
-                  className='ml-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition duration-300 h-1/4'
+                <Button
+                  variant='contained'
+                  className='mt-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition duration-300'
+                  disabled={product.stock < 1}
                   onClick={e => {
                     e.preventDefault();
                     handleAddToCart(product);
                   }}
                 >
                   Añadir al Carrito
-                </button>
+                </Button>
               </div>
               <div className='flex flex-col'>
                 <div>
-                  <span className='ml-auto text-sm opacity-50 font-semibold'>
+                  <span className='ml-auto text-sm opacity-50 font-semibold inline-flex gap-1 items-center'>
                     {product?.rating}
+                    <FaStar />
                   </span>
                   <PriceLabel
                     price={product?.price as number}

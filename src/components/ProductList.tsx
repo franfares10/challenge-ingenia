@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { PriceLabel } from './PriceLabel';
 import { IProduct } from '../interfaces/IProduct';
+import { Button } from '@mui/material';
 
 interface ProductListProps {
   items: IProduct[];
@@ -22,7 +23,7 @@ export default function ProductList({
               className='w-full h-36 object-cover rounded-t-lg'
             />
             <div className='p-4 flex flex-col justify-between flex-1'>
-              <div>
+              <div className='py-2'>
                 <PriceLabel price={item.price as number} currency={'USD'} />
                 <p className='text-lg font-semibold text-gray-800 mt-2 mb-4'>
                   {item.title}
@@ -31,15 +32,17 @@ export default function ProductList({
                   {item.availabilityStatus.toLocaleUpperCase()}
                 </span>
               </div>
-              <button
+              <Button
+                variant='contained'
                 className='mt-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition duration-300'
+                disabled={item.stock < 1}
                 onClick={e => {
                   e.preventDefault();
                   handleAddToCart(item);
                 }}
               >
                 Añadir al Carrito
-              </button>
+              </Button>
             </div>
           </div>
         </Link>
