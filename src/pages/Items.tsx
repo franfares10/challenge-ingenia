@@ -14,9 +14,10 @@ export default function Items() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [items, setItems] = useState<IProduct[]>([]);
   const defaultPage = '1';
-  const defaultLimit = '10';
+  const defaultLimit = '8';
   const page = parseInt(searchParams.get('page') || defaultPage, 10);
   const pageSize = parseInt(searchParams.get('limit') || defaultLimit, 10);
+  const skip = (page - 1) * pageSize;
 
   const {
     data: products,
@@ -30,7 +31,7 @@ export default function Items() {
   }>(
     `/products/search?q=${searchParams.get(
       'search'
-    )}&page=${page}&limit=${pageSize}`
+    )}&page=${page}&skip=${skip}&limit=${pageSize}`
   );
 
   const totalItems = products?.total || 0;

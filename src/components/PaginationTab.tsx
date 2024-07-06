@@ -38,10 +38,10 @@ export default function PaginationTab({
           variant='outlined'
           className='select-custom'
         >
-          <MenuItem value={5}>5</MenuItem>
-          <MenuItem value={10}>10</MenuItem>
-          <MenuItem value={20}>20</MenuItem>
-          <MenuItem value={50}>50</MenuItem>
+          <MenuItem value={4}>4</MenuItem>
+          <MenuItem value={8}>8</MenuItem>
+          <MenuItem value={16}>16</MenuItem>
+          <MenuItem value={32}>32</MenuItem>
         </Select>
       </div>
     </>
