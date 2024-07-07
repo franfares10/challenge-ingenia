@@ -25,8 +25,7 @@ export const useMutation = () => {
         } else if (options.method === 'PUT') {
           response = await api.put(options.url, data);
         }
-
-        // Puedes manejar la respuesta aquí si es necesario
+        
       } catch (error: unknown) {
         setError(true);
       } finally {
