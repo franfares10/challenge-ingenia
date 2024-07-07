@@ -24,6 +24,7 @@ yarn
 
 ### Paso 3: Iniciar la Aplicación en Modo Desarrollo
 
-```npm start
+```
+npm start
 # o con yarn
 yarn start```
